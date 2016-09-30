@@ -1,0 +1,69 @@
+#home {
+  // background: url(background.jpeg) no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  width: 100%;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.2);
+  z-index: -1;
+}
+main {
+  overflow: scroll;
+}
+aside {
+  padding: 0!important;
+  background-color: #0D1C1F;
+  height: 100vh;
+}
+#title {
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Ruslan Display', cursive;
+  text-shadow: 1px 1px 1px gray;
+}
+.image_link {
+  height: 64px;
+  width: 64px;
+}
+
+.user_nav {
+  margin: 10px;
+}
+.btn {
+  padding: 15px;
+  color: black;
+}
+#sign_out, #sign_in  {
+  display: inline;
+  padding: 15px;
+  color: black;
+}
+.input-field {
+  position: relative;
+  right: 20px;
+}
+.material-icons.prefix {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+}
+#search {
+  border-radius: 50px;
+  background-color: white;
+  text-indent: 40px;
+}
+.chip {transform: scale(1.5);}
+.fixed-action-btn.active, .fixed-action-btn {
+  width: max-content;
+}
+.posts_container {
+  marging: auto;
+}

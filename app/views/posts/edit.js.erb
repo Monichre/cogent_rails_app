@@ -1,0 +1,2 @@
+$('#<%= @post.id %>').find('.tag_link').fadeOut(500);
+$('#<%= @post.id %>').append("<%= j render partial: 'posts/add_tag', locals: { post: @post } %>");

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kinekt</title>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag('dataBubbles.png') %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style>
+      @import 'https://fonts.googleapis.com/css?family=Ruslan+Display';
+    </style>
+      <style>
+        @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+      </style>
+      <style>
+        @import 'https://fonts.googleapis.com/css?family=Play';
+      </style>
+      <style>
+        @import 'https://fonts.googleapis.com/css?family=Oswald:300,400';
+      </style>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
