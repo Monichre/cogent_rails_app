@@ -2,15 +2,15 @@
   <div class="post card horizontal">
     <div class="card-image waves-effect waves-block waves-light">
       <!-- <%= image_tag('sampleGraph.png') %> -->
-      <ul id="tags_<%= post.id%>">
 
-      </ul>
     </div>
     <div class="card-stacked">
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= post.title %><i class="material-icons right">more_vert</i></span>
-        <p><%= post.content %></p>
-        <ul id="tags_<%= post.id%>">
+        <p id="<%= post.id %>_content"><%= post.content %></p>
+        <ul id="tags_<%= post.id %>" class="tag_list row">
+            <%= render partial: 'posts/tag', locals: { post: post } %>
+        </ul>
       </div>
       <div class="card-action" id="<%= post.id%>">
         <p><a href="#"><%= post.url %></a></p>

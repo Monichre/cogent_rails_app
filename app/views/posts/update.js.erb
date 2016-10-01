@@ -1,10 +1,2 @@
 alert('We tagging and shit son');
-console.log("<%= @post %>");
-console.log("<%= @tags %>");
-$("<%= @tags %>").forEach(function(tag){
-  console.log(tag);
-  $("#tags_<%= @post.id %>").append("<li>poop</li>");
-  $("#tags_<%= @post.id %>").append(tag);
-  // $("#tags_<%= @post.id %>").append("<div class='chip'>" + <%= tag %> + "<i class='close material-icons'>" + close + "</i></div>");
-
-});
+$('#add_tag_buttons').remove();

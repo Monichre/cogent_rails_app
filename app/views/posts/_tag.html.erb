@@ -1,0 +1,10 @@
+<% if post.tag_list.any? %>
+  <% post.tag_list.each do |tag| %>
+    <div class="col s4">
+      <div class="chip tag">
+        <%= link_to tag, tag_path(tag) %>
+        <i class="close material-icons">close</i>
+      </div>
+    </div>
+  <% end %>
+<% end %>
