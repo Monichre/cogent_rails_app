@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :posts
-  belongs_to :group
+  has_and_belongs_to_many :groups
   validates :username, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
