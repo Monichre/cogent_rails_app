@@ -1,7 +1,11 @@
 class User < ApplicationRecord
   has_many :posts
+  belongs_to :group
+  validates :username, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   acts_as_tagger
-  
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create.tap do |user|
       user.provider = auth.provider
