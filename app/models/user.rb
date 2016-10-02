@@ -1,10 +1,18 @@
 class User < ApplicationRecord
+  acts_as_tagger
   has_many :posts
   has_and_belongs_to_many :groups
+
   validates :username, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  acts_as_tagger
+  # validates :provider, presence: true
+  # validates :uid, presence: true
+  # validates :oauth_token, presence: true
+  # validates :oauth_expires_at, presence: true
+  # validates :email, presence: true
+  # validates :image, presence: true
+  # validates :fb_id, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create.tap do |user|
