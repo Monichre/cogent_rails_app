@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
   it { should have_and_belong_to_many :groups }
 
   user = FactoryGirl.create(:user)
+  post = FactoryGirl.create(:post, user_id: user.id)
   it ' has a first name Liam' do
     expect(user.first_name).to eq "Liam"
   end
@@ -14,4 +15,10 @@ RSpec.describe User, type: :model do
   it 'has username Liam Ellis' do
     expect(user.username).to eq "Liam Ellis"
   end
+
+  it 'has correct post relation' do
+    expect(user.posts.first.title).to eq "Check this out guys"
+  end
+
+
 end
