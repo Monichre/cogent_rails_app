@@ -6,8 +6,15 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
+Capybara.javascript_driver = :poltergeist
+
+Capybara.register_driver :poltergeist do |app|
+  options = {js_errors: false, :phantomjs => Phantomjs.path}
+  Capybara::Poltergeist::Driver.new(app, options)
+end
 
 ActiveRecord::Migration.maintain_test_schema!
+
 
 RSpec.configure do |config|
 
@@ -26,8 +33,6 @@ RSpec.configure do |config|
   end
 
   config.infer_spec_type_from_file_location!
-
-  # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
 
 end

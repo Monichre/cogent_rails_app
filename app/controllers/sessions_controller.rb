@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
     redirect_to home_index_path
   end
 
+  def show
+    redirect_to home_index_path
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_url
