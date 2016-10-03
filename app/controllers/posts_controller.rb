@@ -18,7 +18,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @post = current_user.posts.create(post_params)
     respond_to do |format|
       format.html { redirect_to root_path }

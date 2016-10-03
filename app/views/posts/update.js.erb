@@ -1,2 +1,4 @@
 alert('We tagging and shit son');
 $('#add_tag_buttons').remove();
+alert($('#tags_<%= @post.id %>'));
+$('#tags_<%= @post.id %>').append("<%= j render partial: 'posts/tag', collection: @tags %>");
