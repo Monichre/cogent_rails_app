@@ -1,67 +1,39 @@
-<section id="side_nav">
-  <section class="header row">
-    <div class="container center-align">
-      <h1 id="title" class="white-text darken-3 center-align">COGENT</h1>
-      <% if current_user %>
-        <div class="row">
-          <div class="col s6">
-            <% if current_user %>
-              <%= link_to "S0", signout_path, id: "sign_out", class: "btn-floating black white-text z-depth-5" %>
+
+<!-- Menu -->
+  <section id="menu">
+    <!-- Links -->
+      <header>
+        <h2>COGENT GROUPS</h2>
+      </header>
+      <section>
+        <% if current_user.groups.any? %>
+          <ul class="links">
+            <% current_user.groups.each do |group| %>
+              <li>
+                <a href="#">
+                  <h3><%= group.name %></h3>
+                  <p>Feugiat tempus veroeros dolor</p><!-- Add a group descriptions / perhaps members -->
+                </a>
+              </li>
             <% end %>
-          </div>
-          <div class="col s6">
-            <div class="chip z-depth-5"><%= image_tag(current_user.image) %></div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </section>
-  <div class="row"></div>
-  <% if current_user %>
-    <div class="row center-align">
-      <div class="col s4">
-        <%= link_to image_tag('network.png'), user_path(current_user), class: 'image_link', remote: true %>
-      </div>
-      <div class="col s4">
-        <%= link_to image_tag('calendar.png'), user_path(current_user), class: 'image_link', remote: true %>
-      </div>
-      <div class="col s4">
-        <%= link_to image_tag('contact.png'), user_path(current_user), class: 'image_link', remote: true %>
-      </div>
-    </div>
-  <% end %>
-  <div class="container"><div class="divider"></div></div>
-  <div id="image_search" class="">
-    <div class="container">
-      <form class="">
-        <div class="row">
-          <div class="input-field">
-            <i class="material-icons prefix">search</i>
-            <input placeholder="" id="search" type="text" class="">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="card">
-   <div class="card-image waves-effect waves-block waves-light">
-     <%= image_tag 'collab_card.png', class: "activator" %>
-   </div>
-   <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">Add a post or a collage<i class="material-icons right">more_vert</i></span>
-   </div>
-   <div class="card-reveal">
-     <span class="card-title grey-text text-darken-4">A collage can be anything<i class="material-icons right">close</i></span>
-     <div class="row">
-       <div class="new_post_form_container container">
-        <%= simple_form_for @post, remote: true do |f| %>
-          <%= f.input :title, input_html: { class: 'input-field' } %>
-          <%= f.input :content, input_html: { class: 'input-field' } %>
-          <%= f.input :url, input_html: { class: 'input-field' } %>
-          <%= f.button :submit %>
+          </ul>
         <% end %>
-       </div>
-     </div>
-   </div>
- </div>
-</section>
+      </section>
+
+    <!-- Actions -->
+      <section>
+        <div class="new_post_form_container container">
+          <%= simple_form_for @post, remote: true do |f| %>
+            <%= f.input :title, input_html: { class: 'input-field' } %>
+            <%= f.input :content, input_html: { class: 'input-field' } %>
+            <%= f.input :url, input_html: { class: 'input-field' } %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
+         <ul class="actions vertical">
+           <% if current_user %>
+             <li><%= link_to "Log Out", signout_path, id: "sign_out", class: "button big fit" %></li>
+           <% end %>
+         </ul>
+      </section>
+  </section>

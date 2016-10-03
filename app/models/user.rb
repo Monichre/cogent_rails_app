@@ -3,9 +3,9 @@ class User < ApplicationRecord
   has_many :posts
   has_and_belongs_to_many :groups
 
-  validates :username, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  # validates :username, presence: true
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
   # validates :provider, presence: true
   # validates :uid, presence: true
   # validates :oauth_token, presence: true
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # validates :fb_id, presence: true
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create.tap do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.oauth_token = auth.credentials.token
@@ -28,7 +28,7 @@ class User < ApplicationRecord
       user.location = auth.extra.raw_info.location ? auth.extra.raw_info.location.name : ""
       user.location_id = auth.extra.raw_info.location ? auth.extra.raw_info.location.id : ""
       user.fb_id = auth.extra.raw_info.id
-      user.save
+      # user.save I'm removing this to see if I can save the user model from the controller after seeing if a user exists prior
     end
   end
 

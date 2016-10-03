@@ -1,10 +1,11 @@
 <div id="welcome" class = "valign-wrapper">
-  <div class="overlay"></div>
-  <div class="row">
-      <h1 class="title center white-text valign">COGENT</h1>
-      <div class="row"></div>
-      <div class="center-align row">
-        <%= link_to "SIGN UP", 'auth/facebook', id: "sign_up", class: "" %>
-      </div>
-  </div>
+<div class="overlay"></div>
+  <section>
+    <h1 class="cogent">COGENT</h1>
+    <ul class="register">
+      <li class="auth_links"><%= link_to "SIGN UP", 'auth/facebook', id: "sign_up", class: "" %></li>
+      <li class="auth_links"><%= link_to "LOG IN", 'auth/facebook', id: "log_in", class: "" %></li>
+    </ul>
+  </section>
+
 </div>

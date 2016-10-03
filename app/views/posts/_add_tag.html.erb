@@ -1,17 +1,11 @@
-<!-- <%= simple_form_for @post do |f| %>
-  <%= f.label :tag_list %>
-  <%= f.text_field :tag_list %>
-  <%= f.button :submit %>
-<% end %> -->
-
-<div id="add_tag_buttons" class="row">
-  <div class="col s4">
-    <%= button_to "Dope", post_path(post), { params: { value: 'dope'}, method: 'patch', remote: true, class: "btn-floating btn-large waves-effect waves-light blue"} %>
-  </div>
-  <div class="col s4">
-    <%= button_to "Meh", post_path(post), { params: { value: 'meh'}, method: 'patch', remote: true, class: "btn-floating btn-large waves-effect waves-light blue"} %>
-  </div>
-  <div class="col s4">
-    <%= button_to "Yikes", post_path(post), { params: { value: 'yikes'}, method: 'patch', remote: true, class: "btn-floating btn-large waves-effect waves-light blue"} %>
-  </div>
-</div>
+<!-- <div id="add_tag_buttons" class=""> -->
+  <li class="tag_button">
+    <%= button_to "Dope", post_path(post), { params: { value: 'dope'}, method: 'patch', remote: true, class: ""} %>
+  </li>
+  <li class="tag_button">
+    <%= button_to "Meh", post_path(post), { params: { value: 'meh'}, method: 'patch', remote: true, class: ""} %>
+  </li>
+  <li class="tag_button">
+    <%= button_to "Yikes", post_path(post), { params: { value: 'yikes'}, method: 'patch', remote: true, class: ""} %>
+  </li>
+<!-- </div> -->

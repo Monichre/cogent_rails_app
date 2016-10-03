@@ -26,14 +26,18 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.tag_list.add(params[:value])
-    @post.save
-    @tags = @post.tag_list
-    respond_to do |format|
-      format.html { redirect_to 'home#index' }
-      format.js
+    if !(@post.tag_list.include?(params[:value]))
+      @post.tag_list.add(params[:value])
+      @post.save
+      @tags = @post.tag_list
+      respond_to do |format|
+        format.html { redirect_to 'home#index' }
+        format.js
+      end
+    else
+      flash[:notice] = "Well, that didn't quite work did it?"
+      redirect_to home_index_path
     end
-
   end
 
   def destroy

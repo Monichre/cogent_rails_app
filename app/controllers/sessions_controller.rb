@@ -1,8 +1,15 @@
 class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
-    session[:user_id] = user.id
-    redirect_to home_index_path
+    if User.exists?(user.id)
+      user.save
+      session[:user_id] = user.id
+      redirect_to home_index_path
+    else
+      user.save
+      session[:user_id] = user.id
+      redirect_to new_group_path
+    end
   end
 
   def show

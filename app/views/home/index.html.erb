@@ -1,26 +1,189 @@
-<div id="home">
-  <div class="row">
-    <main class="col s9 push-s3">
-      <div class="fixed-action-btn large" style="top: 2%; left: 28%;">
-        <a class="btn-floating btn-large red">
-          <i class="material-icons">menu</i>
-        </a>
-        <ul id="floater_buttons">
-          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-        </ul>
+<!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Header -->
+      <header id="header">
+        <h1><a href="#">COGENT</a></h1>
+        <nav class="links">
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Groups</a></li>
+            <li><a href="#">Visualization</a></li>
+            <li><a href="#">Feed</a></li>
+            <li><a href="#">Random</a></li>
+          </ul>
+        </nav>
+        <nav class="main">
+          <ul>
+            <li class="search">
+              <a class="fa-search" href="#search">Search</a>
+              <form id="search" method="get" action="#">
+                <input type="text" name="query" placeholder="Search" />
+              </form>
+            </li>
+            <li class="menu">
+              <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+    <!-- Menu -->
+        <%= render 'nav' %>
+    <!-- Menu End -- >
+
+    <!-- Main -->
+      <div id="main">
+
+        <!-- Appending post partial here -->
+        <%= render @posts %>
+
+        <!-- Pagination -->
+          <!-- <ul class="actions pagination">
+            <li><a href="" class="disabled button big previous">Previous Page</a></li>
+            <li><a href="#" class="button big next">Next Page</a></li>
+          </ul> -->
       </div>
-      <div class="posts_container row"><!-- append post partial here -->
-        <% if @posts.any? %>
-          <% @posts.each do |post| %>
-            <%= render partial: 'posts/post', collection: @posts %>
-          <% end %>
-        <% end %>
-      </div>
-    </main>
-    <aside class="col s3 pull-s9 z-depth-4">
-      <%= render 'nav' %>
-    </aside>
+
+    <!-- Sidebar -->
+      <section id="sidebar">
+
+        <!-- Intro -->
+          <section id="intro">
+            <%= image_tag(current_user.image, class: 'logo') %>
+            <header>
+              <h2>COGENT Dashboard</h2>
+              <p>The curated news feed</p>
+              <p>Inherently relevant</p>
+            </header>
+          </section>
+
+        <!-- Mini Posts -->
+          <section>
+            <div class="mini-posts">
+
+              <!-- Mini Post -->
+                <article class="mini-post">
+                  <header>
+                    <h3><a href="#">Vitae sed condimentum</a></h3>
+                    <time class="published" datetime="2015-10-20">October 20, 2015</time>
+                    <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
+                </article>
+
+              <!-- Mini Post -->
+                <article class="mini-post">
+                  <header>
+                    <h3><a href="#">Rutrum neque accumsan</a></h3>
+                    <time class="published" datetime="2015-10-19">October 19, 2015</time>
+                    <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                </article>
+
+              <!-- Mini Post -->
+                <article class="mini-post">
+                  <header>
+                    <h3><a href="#">Odio congue mattis</a></h3>
+                    <time class="published" datetime="2015-10-18">October 18, 2015</time>
+                    <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
+                </article>
+
+              <!-- Mini Post -->
+                <article class="mini-post">
+                  <header>
+                    <h3><a href="#">Enim nisl veroeros</a></h3>
+                    <time class="published" datetime="2015-10-17">October 17, 2015</time>
+                    <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                </article>
+
+            </div>
+          </section>
+
+        <!-- Posts List -->
+          <section>
+            <ul class="posts">
+              <li>
+                <article>
+                  <header>
+                    <h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
+                    <time class="published" datetime="2015-10-20">October 20, 2015</time>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <header>
+                    <h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
+                    <time class="published" datetime="2015-10-15">October 15, 2015</time>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <header>
+                    <h3><a href="#">Euismod amet placerat vivamus porttitor</a></h3>
+                    <time class="published" datetime="2015-10-10">October 10, 2015</time>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic10.jpg" alt="" /></a>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <header>
+                    <h3><a href="#">Magna enim accumsan tortor cursus ultricies</a></h3>
+                    <time class="published" datetime="2015-10-08">October 8, 2015</time>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic11.jpg" alt="" /></a>
+                </article>
+              </li>
+              <li>
+                <article>
+                  <header>
+                    <h3><a href="#">Congue ullam corper lorem ipsum dolor</a></h3>
+                    <time class="published" datetime="2015-10-06">October 7, 2015</time>
+                  </header>
+                  <a href="#" class="image"><img src="images/pic12.jpg" alt="" /></a>
+                </article>
+              </li>
+            </ul>
+          </section>
+
+        <!-- About -->
+          <section class="blurb">
+            <h2>About</h2>
+            <p>This is a capstone project by Liam Ellis. It was hard and a lot went it to it. So far so good. Code on brethren</p>
+          </section>
+
+        <!-- Footer -->
+          <section id="footer">
+            <ul class="icons">
+              <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+              <li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+              <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <p class="copyright">&copy; Aestheke Inc.</p>
+          </section>
+
+      </section>
+
   </div>
-</div>
+
+<!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/skel.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

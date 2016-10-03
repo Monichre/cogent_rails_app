@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'home#index', as: :tag
 
-  resources :users, :sessions, :posts
+  resources :users, :sessions, :posts, :groups
 
   root to: 'welcome#index'
 
