@@ -2,13 +2,18 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     if User.exists?(user.id)
+      remember user
+      #saving using here in the controller to update any recent data from the omniauth facebook response
       user.save
       session[:user_id] = user.id
       redirect_to home_index_path
+      flash[:notice]= "Welcome back!"
     else
       user.save
       session[:user_id] = user.id
-      redirect_to new_group_path
+      redirect_to home_index_path
+      flash[:notice]= "Thank you for signing up, you'll receive a confirmation email shortly. Please register your group and invite friends. #{new_user_group_path(user)}"
+
     end
   end
 

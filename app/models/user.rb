@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  attr_accessor :remember_token, :activation_token
+
+  before_create :create_activation_digest
+
   acts_as_tagger
   has_many :posts
   has_and_belongs_to_many :groups
@@ -35,4 +39,32 @@ class User < ApplicationRecord
   def koala()
     facebook = Koala::Facebook::API.new(self.oauth_token)
   end
+
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  #generates random token
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  #will return true if the given token matches the digest
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest) .is_password?(remember_token)
+  end
+
+  private
+
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+
 end

@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'home#index', as: :tag
 
-  resources :users, :sessions, :posts, :groups
+  resources :users, :sessions, :posts
+
+  resources :users do
+    resources :groups
+  end
+  
+  resources :account_activations, only: :edit
 
   root to: 'welcome#index'
 

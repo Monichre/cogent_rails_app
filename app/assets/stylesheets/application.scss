@@ -15,6 +15,22 @@
  */
  // @import "materialize";
  @import "font-awesome";
+ /* Flash Messages */
+  #flash {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    // z-index: 10;
+  }
+    #flash_content {
+      margin: auto;
+      position: relative;
+      top: 40%;
+      color: black;
+      text-align: center;
+    }
 
 
 
@@ -59,6 +75,8 @@
  	body {
  		-webkit-text-size-adjust: none;
  	}
+
+  /* Simple Form */
 
   form.simple_form input {
     text-align: center!important;

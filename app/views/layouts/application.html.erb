@@ -5,11 +5,8 @@
     <%= csrf_meta_tags %>
     <%= favicon_link_tag('dataBubbles.png') %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <style>
-      @import 'https://fonts.googleapis.com/css?family=Ruslan+Display';
-    </style>
       <style>
-        @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+        @import 'https://fonts.googleapis.com/css?family=Ruslan+Display';
       </style>
       <style>
         @import 'https://fonts.googleapis.com/css?family=Play';
@@ -24,6 +21,12 @@
   </head>
 
   <body>
+    <div id="flash">
+      <div id="flash_content">
+        <%= flash[:alert] %>
+        <%= flash[:notice] %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
