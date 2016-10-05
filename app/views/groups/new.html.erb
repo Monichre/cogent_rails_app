@@ -1,78 +1,79 @@
+<div class="new_group">
 
-<div id="wrapper">
+	<div class="wrapper">
+	<!-- Header -->
+		<header class="header">	<!-- used to be #header -->
+			<h1><a href="#">COGENT</a></h1>
+	    <nav class="links">
+	      <ul>
+	        <li><a href="#">Profile</a></li>
+	        <li><a href="#">Groups</a></li>
+	        <li><a href="#">Visualization</a></li>
+	        <li><a href="#">Feed</a></li>
+	        <li><a href="#">Random</a></li>
+	      </ul>
+	    </nav>
+			<nav class="main">
+				<ul>
+					<li class="search">
+						<a class="fa-search" href="#search">Search</a>
+						<form id="search" method="get" action="#">
+							<input type="text" name="query" placeholder="Search" />
+						</form>
+					</li>
+					<li class="menu">
+						<a class="fa-bars" href="#menu">Menu</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-<!-- Header -->
-	<header id="header">
-		<h1><a href="#">COGENT</a></h1>
-    <nav class="links">
-      <ul>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Groups</a></li>
-        <li><a href="#">Visualization</a></li>
-        <li><a href="#">Feed</a></li>
-        <li><a href="#">Random</a></li>
-      </ul>
-    </nav>
-		<nav class="main">
-			<ul>
-				<li class="search">
-					<a class="fa-search" href="#search">Search</a>
-					<form id="search" method="get" action="#">
-						<input type="text" name="query" placeholder="Search" />
-					</form>
-				</li>
-				<li class="menu">
-					<a class="fa-bars" href="#menu">Menu</a>
-				</li>
+	<!-- Menu -->
+		<!-- <%= render 'home/nav' %> -->
+
+	<!-- Main -->
+		<div class="main"> <!-- used to be #main -->
+
+			<!-- Post -->
+				<article class="post">
+					<header>
+						<div class="title">
+							<h2><a href="#">Choose a group name</a></h2>
+							<p>Invite your friends to join with Facebook or Google</p>
+						</div>
+						<div class="meta">
+							<time class="published" datetime="2015-11-01"><%= Date.current() %></time>
+							<a href="#" class="author"><span class="name">Welcome<br><%= current_user.username %></span><%= image_tag(current_user.image, class: 'logo') %></a>
+						</div>
+					</header>
+	        <div class="new_group_form_container">
+	          <%= simple_form_for [@user, @group], remote: true do |f| %>
+	            <%= f.input :name, input_html: { class: 'input-field' } %>
+	            <%= f.button :submit %>
+	          <% end %>
+	        </div>
+					<footer>
+						<ul class="stats">
+							<li><a href="#">General</a></li>
+							<li><a href="#" class="icon fa-heart">28</a></li>
+							<li><a href="#" class="icon fa-comment">128</a></li>
+						</ul>
+					</footer>
+				</article>
+		</div>
+
+	<!-- Footer -->
+
+		<section class="footer"><!-- used to be #footer -->
+			<ul class="icons">
+				<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+				<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
 			</ul>
-		</nav>
-	</header>
-
-<!-- Menu -->
-	<%= render 'home/nav' %>
-
-<!-- Main -->
-	<div id="main">
-
-		<!-- Post -->
-			<article class="post">
-				<header>
-					<div class="title">
-						<h2><a href="#">Choose a group name</a></h2>
-						<p>Invite your friends to join with Facebook or Google</p>
-					</div>
-					<div class="meta">
-						<time class="published" datetime="2015-11-01"><%= Date.current() %></time>
-						<a href="#" class="author"><span class="name">Welcome<br><%= current_user.username %></span><%= image_tag(current_user.image, class: 'logo') %></a>
-					</div>
-				</header>
-        <div class="new_group_form_container">
-          <%= simple_form_for @group, remote: true do |f| %>
-            <%= f.input :name, input_html: { class: 'input-field' } %>
-            <%= f.button :submit %>
-          <% end %>
-        </div>
-				<footer>
-					<ul class="stats">
-						<li><a href="#">General</a></li>
-						<li><a href="#" class="icon fa-heart">28</a></li>
-						<li><a href="#" class="icon fa-comment">128</a></li>
-					</ul>
-				</footer>
-			</article>
+			<p class="copyright">&copy; Untitled.</p>
+		</section>
 
 	</div>
-
-<!-- Footer -->
-	<section id="footer">
-		<ul class="icons">
-			<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-			<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-			<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
-			<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
-			<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
-		</ul>
-		<p class="copyright">&copy; Untitled.</p>
-	</section>
-
-</div>
+</div><!-- end of new_group -->

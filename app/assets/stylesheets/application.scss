@@ -2986,7 +2986,7 @@
  		padding-top: 3.5em;
  	}
 
- 	#header {
+ 	#header, .header {
  		display: -moz-flex;
  		display: -webkit-flex;
  		display: -ms-flex;
@@ -3006,34 +3006,34 @@
  		z-index: 10000;
  	}
 
- 		#header a {
+ 		#header a, .header a {
  			color: inherit;
  			text-decoration: none;
  		}
 
- 		#header ul {
+ 		#header ul, .header ul {
  			list-style: none;
  			margin: 0;
  			padding-left: 0;
  		}
 
- 			#header ul li {
+ 			#header ul li, .header ul li {
  				display: inline-block;
  				padding-left: 0;
  			}
 
- 		#header h1 {
+ 		#header h1, .header h1 {
  			height: inherit;
  			line-height: inherit;
  			padding: 0 0 0 1.5em;
  			white-space: nowrap;
  		}
 
- 			#header h1 a {
+ 			#header h1 a, .header h1 a {
  				font-size: 0.7em;
  			}
 
- 		#header .links {
+ 		#header .links, .header .links {
  			-moz-flex: 1;
  			-webkit-flex: 1;
  			-ms-flex: 1;
@@ -3158,7 +3158,7 @@
 
  		@media screen and (max-width: 980px) {
 
- 			#header .links {
+ 			#header .links, .header .links {
  				display: none;
  			}
 
@@ -3166,12 +3166,12 @@
 
  		@media screen and (max-width: 736px) {
 
- 			#header {
+ 			#header, .header {
  				height: 2.75em;
  				line-height: 2.75em;
  			}
 
- 				#header h1 {
+ 				#header h1, .header h1 {
  					padding: 0 0 0 1em;
  				}
 
@@ -3362,11 +3362,11 @@
 
  /* Footer */
 
- 	#footer .icons {
+ 	#footer .icons, .footer .icons {
  		color: #aaaaaa;
  	}
 
- 	#footer .copyright {
+ 	#footer .copyright, .footer .copyright {
  		color: #aaaaaa;
  		font-family: "Raleway", Helvetica, sans-serif;
  		font-size: 0.5em;
@@ -3375,7 +3375,7 @@
  		text-transform: uppercase;
  	}
 
- 	body.single #footer {
+ 	body.single #footer, body.single .footer {
  		text-align: center;
  	}
 

@@ -1,19 +1,19 @@
 class SessionsController < ApplicationController
   def create
-    user = User.from_omniauth(env["omniauth.auth"])
-    if User.exists?(user.id)
-      remember user
-      #saving using here in the controller to update any recent data from the omniauth facebook response
-      user.save
-      session[:user_id] = user.id
+    user = User.from_omniauth(env["omniauth.auth"]) #activation token is created here
+    if User.exists?(user.id) # && user.activated?
+      user.save #saving using here in the controller to update any recent data from the omniauth facebook response
+      # remember user
+      # cookies.permanent[:activation_token] = user.activation_token
       redirect_to home_index_path
       flash[:notice]= "Welcome back!"
     else
       user.save
-      session[:user_id] = user.id
-      redirect_to home_index_path
-      flash[:notice]= "Thank you for signing up, you'll receive a confirmation email shortly. Please register your group and invite friends. #{new_user_group_path(user)}"
-
+      binding.pry
+      user.send_activation_email # not using an instance variable here might be an issue
+      log_in user
+      redirect_to new_user_group_path(user)
+      flash[:notice]= "Thank you for signing up, you'll receive a confirmation email shortly."
     end
   end
 
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    log_out
     redirect_to root_url
   end
 

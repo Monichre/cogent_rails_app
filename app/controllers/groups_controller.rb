@@ -10,16 +10,20 @@ class GroupsController < ApplicationController
   def new
     @post = Post.new
     @group = Group.new
+    @user = current_user
   end
 
   def edit
   end
 
   def create
-    @group = Group.new(group_params)
-    @group.users << current_user
-    @group.save
-    redirect_to home_index_path
+    @user = current_user
+    @group = @user.groups.create(group_params)
+    if @user.activated?
+      redirect_to home_index_path
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
