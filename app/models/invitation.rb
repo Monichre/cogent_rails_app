@@ -7,7 +7,7 @@ class Invitation < ApplicationRecord
   # validate :recipient_not_registered
   # validate :sender_has_invitations, if: :sender
 
-  before_create :generate_token
+  before_create :generate_invitation_token
   # before_create :decrement_sender_count, if: :sender
 
   private

@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
   get 'tags/:tag', to: 'home#index', as: :tag
+  get 'invitation_signup/:invitation_token', to: 'account_activations#new', as: 'invitation_signup'
 
   resources :users, :sessions, :posts
-  resources :account_activations, only: :edit
+  resources :account_activations, only: [:edit, :create]
 
   resources :users do
     resources :groups do

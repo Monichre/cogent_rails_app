@@ -13,6 +13,8 @@ class InvitationsController < ApplicationController
     @invitation.sender_id = current_user.id
     @invitation.group_id = params[:group_id]
     if @invitation.save
+      InviteMailer.invitation(@invitation).deliver_now
+      binding.pry
       flash[:notice] = "Thank you. Invitation sent!"
       redirect_to home_index_path
     else

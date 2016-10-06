@@ -1,4 +1,10 @@
 class AccountActivationsController < ApplicationController
+  
+  def new
+  end
+
+  def create
+  end
 
   def edit
     user = User.find_by(email: params[:email])
