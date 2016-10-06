@@ -2,6 +2,8 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :destroy, :edit]
 
   def index
+    @user = current_user
+    @groups = @user.groups
   end
 
   def show

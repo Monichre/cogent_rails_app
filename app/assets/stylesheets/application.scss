@@ -16,22 +16,6 @@
  // @import "materialize";
  @import "font-awesome";
  /* Flash Messages */
-  #flash {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    // z-index: 10;
-  }
-    #flash_content {
-      margin: auto;
-      position: relative;
-      top: 40%;
-      color: black;
-      text-align: center;
-    }
-
 
 
  /* Reset */
@@ -3183,7 +3167,7 @@
 
  /* Wrapper */
 
- 	#wrapper {
+ 	#wrapper, .wrapper {
  		display: -moz-flex;
  		display: -webkit-flex;
  		display: -ms-flex;
@@ -3203,13 +3187,13 @@
  		width: 90em;
  	}
 
- 		body.is-menu-visible #wrapper {
+ 		#wrapper.is-menu-visible body {
  			opacity: 0.15;
  		}
 
  		@media screen and (max-width: 1680px) {
 
- 			#wrapper {
+ 			#wrapper, .wrapper {
  				padding: 3em;
  			}
 
@@ -3217,7 +3201,7 @@
 
  		@media screen and (max-width: 1280px) {
 
- 			#wrapper {
+ 			#wrapper, .wrapper {
  				display: block;
  			}
 
@@ -3225,13 +3209,13 @@
 
  		@media screen and (max-width: 736px) {
 
- 			#wrapper {
+ 			#wrapper, .wrapper {
  				padding: 1.5em;
  			}
 
  		}
 
- 		body.single #wrapper {
+ 		body.single #wrapper, body.single .wrapper {
  			display: block;
  		}
 
@@ -3375,7 +3359,7 @@
  		text-transform: uppercase;
  	}
 
- 	body.single #footer, body.single .footer {
+ 	body.single #footer, .footer {
  		text-align: center;
  	}
 
@@ -3463,7 +3447,7 @@
  					padding-top: 0;
  				}
 
- 		body.is-menu-visible #menu {
+ 		#wrapper.is-menu-visible #menu {
  			-moz-transform: translateX(0);
  			-webkit-transform: translateX(0);
  			-ms-transform: translateX(0);

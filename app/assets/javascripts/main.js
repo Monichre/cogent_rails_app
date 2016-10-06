@@ -15,6 +15,7 @@
 		var	$window = $(window),
 			$body = $('body'),
 			$menu = $('#menu'),
+			$wrapper = $('#wrapper'),
 			$sidebar = $('#sidebar'),
 			$main = $('#main');
 
@@ -44,7 +45,7 @@
 
 		// Menu.
 			$menu
-				.appendTo($body)
+				.appendTo($wrapper)
 				.panel({
 					delay: 500,
 					hideOnClick: true,
@@ -52,7 +53,7 @@
 					resetScroll: true,
 					resetForms: true,
 					side: 'right',
-					target: $body,
+					target: $wrapper,
 					visibleClass: 'is-menu-visible'
 				});
 

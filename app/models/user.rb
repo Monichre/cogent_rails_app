@@ -2,10 +2,13 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
 
   before_save :create_activation_digest
+  after_initialize :set_invitation_limit
 
   acts_as_tagger
   has_many :posts
   has_and_belongs_to_many :groups
+  has_many :sent_invitations, :class_name => 'Invitation', :foreign_key => 'sender_id'
+  has_many :invites, :class_name => "Invitation", :foreign_key => 'recipient_id'
 
   # validates :username, presence: true
   # validates :first_name, presence: true
@@ -57,11 +60,15 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
-
+  #private
   def create_activation_digest
     self.activation_token = User.new_token.to_s
     self.activation_digest = BCrypt::Password.create(self.activation_token)
-    # self.activation_password = BCrypt::Password.new(self.activation_digest)
   end
+
+  private
+    def set_invitation_limit
+      self.invitation_limit = 5
+    end
 
 end

@@ -1,9 +1,9 @@
-<div class="new_group">
+<div id="new_group">
 
 	<div class="wrapper">
 	<!-- Header -->
 		<header class="header">	<!-- used to be #header -->
-			<h1><a href="#">COGENT</a></h1>
+			<h1>COGENT</h1>
 	    <nav class="links">
 	      <ul>
 	        <li><a href="#">Profile</a></li>
@@ -43,7 +43,8 @@
 						</div>
 						<div class="meta">
 							<time class="published" datetime="2015-11-01"><%= Date.current() %></time>
-							<a href="#" class="author"><span class="name">Welcome<br><%= current_user.username %></span><%= image_tag(current_user.image, class: 'logo') %></a>
+							<a href="#" class="author"><span class="name">Welcome<br><%= current_user.username %>
+							</span><%= image_tag(current_user.image, class: 'logo') %></a>
 						</div>
 					</header>
 	        <div class="new_group_form_container">

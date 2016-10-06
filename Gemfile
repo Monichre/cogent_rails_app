@@ -28,11 +28,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'materialize-sass'
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 gem 'twitter'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'simple_form'
 gem "koala", "~> 2.2"
 gem "font-awesome-rails"
+gem 'google-api-client', '~> 0.9'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

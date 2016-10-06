@@ -12,8 +12,21 @@
               <li>
                 <a href="#">
                   <h3><%= group.name %></h3>
-                  <p>Feugiat tempus veroeros dolor</p><!-- Add a group descriptions / perhaps members -->
                 </a>
+      						<% if group.users.any? %>
+                    <footer>
+        							<ul class="stats">
+        								<h3>MEMBERS:</h3>
+        								<% group.users.each do |user| %>
+        									<% if user.username == current_user.username %>
+        										<li><a href="#" class="icon fa-user">YOU</a></li>
+        									<% else %>
+        										<li><a href="#" class="icon fa-user"><%= user.username %></a></li>
+        									<% end %><!--end of if -->
+        								<% end %><!--end of each -->
+                      </ul>
+                    </footer>
+      						<% end %>
               </li>
             <% end %>
           </ul>
@@ -22,6 +35,7 @@
 
     <!-- Actions -->
       <section>
+        <h3>Add a new post</h3>
         <div class="new_post_form_container container">
           <%= simple_form_for @post, remote: true do |f| %>
             <%= f.input :title, input_html: { class: 'input-field' } %>

@@ -7,7 +7,9 @@
         <nav class="links">
           <ul>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Groups</a></li>
+            <% if current_user %>
+              <li><%= link_to "Groups", user_groups_path(current_user) %></li>
+            <% end %>
             <li><a href="#">Visualization</a></li>
             <li><a href="#">Feed</a></li>
             <li><a href="#">Random</a></li>
