@@ -8,6 +8,13 @@ class HomeController < ApplicationController
     else
       @posts = Post.order(created_at: :desc)
     end
+    binding.pry
+
+    # current_user.rock_tweets.sample do |object| --> The code that almost brought the plane down. **This works in the command line**
+    #   puts object.text if object.is_a?(Twitter::Tweet)
+    # end
+
+    current_user.twitter
   end
 
   private
