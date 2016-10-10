@@ -1,11 +1,8 @@
-require 'twitter'
-
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token, :twitter
+  attr_accessor :remember_token, :activation_token
 
   before_save :create_activation_digest
-  before_save :rock_tweets
-  after_initialize :set_invitation_limit
+
 
   acts_as_tagger
   has_many :posts
@@ -67,15 +64,6 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token.to_s
     self.activation_digest = BCrypt::Password.create(self.activation_token)
-  end
-
-  def rock_tweets
-    self.twitter = Twitter::Streaming::Client.new do |config|
-      config.consumer_key        = ENV['CONSUMER_KEY']
-      config.consumer_secret     = ENV['CONSUMER_SECRET']
-      config.access_token        = ENV['ACCESS_TOKEN']
-      config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
-    end
   end
 
   private
