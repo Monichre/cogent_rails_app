@@ -1,8 +1,8 @@
 <article class="mini-post">
   <header>
-    <h3><a href="#">Rutrum neque accumsan</a></h3>
-    <time class="published" datetime="2015-10-19">October 19, 2015</time>
-    <a href="#" class="author"><img src="images/avatar.jpg" alt="" /></a>
+    <h3><a href="#"><%= tweet.user.name %></a></h3>
+    <time class="published" datetime="<%= tweet.created_at %>"><%= tweet.created_at %></time>
+    <a href="#" class="author"><img src="i<%= tweet.user.profile_image_url %>" alt="" /></a>
   </header>
-  <a href="#" class=""><%= tweet.text %></a>
+  <span class="tweet_text"><%= tweet.text %></span>
 </article>

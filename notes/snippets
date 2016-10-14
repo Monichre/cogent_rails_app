@@ -1,5 +1,5 @@
-OAuth client
-Here is your client ID
-224875055125-gao18n7tlr5mem4pf7vamg2kq9r4r6e2
-Here is your client secret
-XhNVtS5SqGY2CwPigFg13GfZ
+
+
+<!-- <% get_tweets(group) do |tweet| %>
+  <%= render partial: 'groups/tweet', locals: { tweet: tweet} %>
+<% end %> -->
