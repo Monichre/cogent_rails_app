@@ -35,6 +35,7 @@ gem 'simple_form'
 gem "koala", "~> 2.2"
 gem "font-awesome-rails"
 gem 'google-api-client', '~> 0.9'
+gem 'link_thumbnailer'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

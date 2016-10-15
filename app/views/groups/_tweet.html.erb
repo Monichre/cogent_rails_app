@@ -2,7 +2,8 @@
   <header>
     <h3><a href="#"><%= tweet.user.name %></a></h3>
     <time class="published" datetime="<%= tweet.created_at %>"><%= tweet.created_at %></time>
-    <a href="#" class="author"><img src="i<%= tweet.user.profile_image_url %>" alt="" /></a>
+    <a href="#" class="author"><img src="<%= tweet.user.profile_image_url %>" alt="" /></a>
   </header>
   <span class="tweet_text"><%= tweet.text %></span>
+  <span class="tweet_text"><%= tweet.user.location %></span>
 </article>

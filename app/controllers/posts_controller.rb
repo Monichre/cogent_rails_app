@@ -19,6 +19,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.create(post_params)
+    @post.thumbnailer = LinkThumbnailer.generate(post_params[:url])
+
+    binding.pry
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js
