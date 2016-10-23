@@ -3,7 +3,9 @@
   <header>
     <div class="title">
       <h2><a href="#"><%= post.title %></a></h2>
-      <p><%= post.thumbnailer.description %></p>
+      <% if post.thumbnailer != nil %>
+        <p><%= post.thumbnailer.description %></p>
+      <% end %>
       <ul id="tags_<%= post.id %>" class="">
         <% if post.tag_list.any? %>
           <% post.tag_list.each do |tag| %>
@@ -17,17 +19,21 @@
       <a href="#" class="author"><span class="name"><%= post.get_user.username %></span><%= image_tag(post.get_user.image) %></a>
     </div>
   </header>
-  <a href="#" class="image featured"><img src="<%= post.thumbnailer.images.first.src %>" alt="" /></a>
+  <% if post.thumbnailer != nil %>
+    <a href="<%= post.url %>" class="image featured"><img src="<%= post.thumbnailer.images.first.src %>" alt="" /></a>
+  <% end %>
+
   <p id="<%= post.id %>_content"><%= post.content %></p>
   <footer>
     <!-- <ul class="actions">
       <li><a href="#" class="button big">Continue Reading</a></li>
     </ul> -->
-    <ul class="stats" id="<%= post.id%>">
-      <li><a href="#">General</a></li>
+    <ul class="stats" id="<%= post.id %>">
       <li><a href="#" class="icon fa-heart">28</a></li>
       <li><a href="#" class="icon fa-comment">128</a></li>
-      <li><a href="#"><%= post.url %></a></li>
+      <% if post.thumbnailer != nil %>
+        <li><%= post.thumbnailer.title %></li>
+      <% end %>
       <li><%= link_to "Tag this", edit_post_path(post), class: "tag_link", remote: true %></li>
     </ul>
   </footer>

@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"]) #activation token is created here
     if User.exists?(user.id) && user.activated?
       user.save #saving using here in the controller to update any recent data from the omniauth facebook response
+      log_in(user)
       # remember user
       # cookies.permanent[:activation_token] = user.activation_token
       redirect_to home_index_path
-      flash[:notice]= "Welcome back!"
     else
       user.save
       binding.pry
