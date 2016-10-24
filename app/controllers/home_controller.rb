@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     #   puts object.text if object.is_a?(Twitter::Tweet)
     # end
     # current_user.twitter
-    
+
   end
 
   private

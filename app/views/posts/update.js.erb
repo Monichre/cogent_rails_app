@@ -1,2 +1,2 @@
 $('#add_tag_buttons').hide();
-$('#tags_<%= @post.id %>').append("<%= j render partial: 'posts/tag', collection: @tags %>");
+$('#tags_<%= @post.id %>').append("<%= j render partial: 'posts/tag', locals: { tag: @tag } %>");

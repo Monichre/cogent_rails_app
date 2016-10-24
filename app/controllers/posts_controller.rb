@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     if !(@post.tag_list.include?(params[:value]))
       @post.tag_list.add(params[:value])
       @post.save
-      @tags = @post.tag_list
+      @tag = params[:value]
       respond_to do |format|
         format.html { redirect_to 'home#index' }
         format.js
